@@ -1,0 +1,777 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="authentication,OAuth2," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="今天开始写第一篇博文，主要是感觉平时很多知识点都是零零碎碎的，想用博客的形式记录下来，这样一方面是便于以后自己查找，另外一方面放到网上也可以和其他人交流。我之前也在iteye写过博客http://odysseus-110.iteye.com/，但是后来感觉iteye网站的样式和功能都不是我想要的，所以就自己动手重新搭建了一个。
+前段时间研究了下php版本的oauth2，于是自己尝试着在本机上搭建了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何搭建自己的统一认证平台">
+<meta property="og:url" content="http://vergilius.me/2016/06/03/tech/index.html">
+<meta property="og:site_name" content="vergilius的博客">
+<meta property="og:description" content="今天开始写第一篇博文，主要是感觉平时很多知识点都是零零碎碎的，想用博客的形式记录下来，这样一方面是便于以后自己查找，另外一方面放到网上也可以和其他人交流。我之前也在iteye写过博客http://odysseus-110.iteye.com/，但是后来感觉iteye网站的样式和功能都不是我想要的，所以就自己动手重新搭建了一个。
+前段时间研究了下php版本的oauth2，于是自己尝试着在本机上搭建了">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/login-authentication.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/login-authentication-step2.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/authentication-provision.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/qq-oauth2.0.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/weibo-oauth2.0.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/explanation-oauth2.0.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/Abstract-Protocol-Flow.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/diagram-oauth2.0.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/Authorization-Code-Flow.png">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/client-credentials-flow.png">
+<meta property="og:updated_time" content="2016-06-03T10:44:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何搭建自己的统一认证平台">
+<meta name="twitter:description" content="今天开始写第一篇博文，主要是感觉平时很多知识点都是零零碎碎的，想用博客的形式记录下来，这样一方面是便于以后自己查找，另外一方面放到网上也可以和其他人交流。我之前也在iteye写过博客http://odysseus-110.iteye.com/，但是后来感觉iteye网站的样式和功能都不是我想要的，所以就自己动手重新搭建了一个。
+前段时间研究了下php版本的oauth2，于是自己尝试着在本机上搭建了">
+<meta name="twitter:image" content="http://oeb0ci3nk.bkt.clouddn.com/image/blog/login-authentication.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vergilius.me/2016/06/03/tech/"/>
+
+  <title> 如何搭建自己的统一认证平台 | vergilius的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">vergilius的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Know Yourself</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何搭建自己的统一认证平台
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T18:44:12+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天开始写第一篇博文，主要是感觉平时很多知识点都是零零碎碎的，想用博客的形式记录下来，这样一方面是便于以后自己查找，另外一方面放到网上也可以和其他人交流。我之前也在iteye写过博客<a href="http://odysseus-110.iteye.com/" title="博客" target="_blank" rel="external">http://odysseus-110.iteye.com/</a>，但是后来感觉iteye网站的样式和功能都不是我想要的，所以就自己动手重新搭建了一个。</p>
+<p>前段时间研究了下php版本的oauth2，于是自己尝试着在本机上搭建了起来。</p>
+<h3 id="1-目标"><a href="#1-目标" class="headerlink" title="1. 目标"></a>1. 目标</h3><h4 id="1-1：目标1-第三方登录验证"><a href="#1-1：目标1-第三方登录验证" class="headerlink" title="1.1：目标1 第三方登录验证"></a>1.1：目标1 第三方登录验证</h4><p><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/login-authentication.png" alt="login-authentication"></p>
+<p>当用户点击第三方网站登录框下面的图标时提示用户授权登录：<br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/login-authentication-step2.png" alt="login-authentication-step2"></p>
+<h4 id="1-2：目标2-将网站的资源提供给第三方平台"><a href="#1-2：目标2-将网站的资源提供给第三方平台" class="headerlink" title="1.2：目标2 将网站的资源提供给第三方平台"></a>1.2：目标2 将网站的资源提供给第三方平台</h4><p>例如通过 <a href="http://wiki.open.qq.com/wiki/website/API%E5%88%97%E8%A1%A8" title="腾讯的开放平台" target="_blank" rel="external">腾讯的开放平台</a> 可以获得用户的昵称、头像、性别等：<br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/authentication-provision.png" alt="authentication-provision"><br>要实现这两个目标，我首先想到的是可以参考一下各大互联网公司都是怎么做的。</p>
+<p><a href="http://wiki.open.qq.com/wiki/website/OAuth2.0%E7%AE%80%E4%BB%8B" title="QQ登录OAuth2.0" target="_blank" rel="external">QQ登录OAuth2.0</a><br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/qq-oauth2.0.png" alt="qq-oauth2.0"><br><a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6" title="新浪微博开放平台" target="_blank" rel="external">新浪微博开放平台</a><br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/weibo-oauth2.0.png" alt="weibo-oauth2.0"><br>这两家网站使用的都是oauth2.0，于是搜了下 <a href="https://tools.ietf.org/html/rfc6749" title="oauth2.0 的定义" target="_blank" rel="external">oauth2.0 的定义</a> 。</p>
+<h3 id="2-oauth2-介绍"><a href="#2-oauth2-介绍" class="headerlink" title="2. oauth2 介绍"></a>2. oauth2 介绍</h3><p>The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP service, or by allowing the third-party application to obtain access on its own behalf. This specification replaces and obsoletes the OAuth 1.0 protocol described in <a href="http://tools.ietf.org/html/rfc5849" title="RFC 5849" target="_blank" rel="external">RFC 5849</a> .<br>OAuth2.0 认证框架能让第三方应用获得对一个HTTP服务的有限访问权限，或者通过在资源拥有者和HTTP服务之间安排一个经过批准的交互来代表一个资源拥有者，或者允许第三方应用代表自己获得访问权限。此说明书替代并且淘汰了在 <a href="http://tools.ietf.org/html/rfc5849" title="RFC 5849" target="_blank" rel="external">RFC 5849</a> 中描述的OAuth 1.0协议。<br>用户在使用第三方服务的时候，如果第三方服务要使用到用户已经拥有的资源，比如用户已经在 www.photos.com 上传了图片，现在用户要在第三方服务 www.showphotos.com 上来显示这些图片，而用户又不想再上传一遍图片，那就可以经过用户的同意，让 www.photos.com 授权给 www.showphotos.com 来显示图片。<br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/explanation-oauth2.0.png" alt="explanation-oauth2.0"><br>oauth2协议 流程图</p>
+<p><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/Abstract-Protocol-Flow.png" alt="Abstract-Protocol-Flow"></p>
+<p>The abstract OAuth 2.0 flow illustrated in Figure 1 describes the interaction between the four roles and includes the following steps:</p>
+<p>图1中说明的抽象的OAuth 2.0的流程描述了四种角色之间的交互并且包含以下几个步骤：</p>
+<p>(A) The client requests authorization from the resource owner. The authorization request can be made directly to the resource owner (as shown), or preferably indirectly via the authorization server as an intermediary.</p>
+<p>(A) 客户端(The client)从资源所有者(resource owner)请求授权。这个授权请求可以直接发送给资源所有者（正如图中所示），或者更好的方法是间接的通过作为中介的认证服务器(authorization server)来发送。</p>
+<p>(B) The client receives an authorization grant, which is a credential representing the resource owner’s authorization, expressed using one of four grant types defined in this specification or using an extension grant type. The authorization grant type depends on the method used by the client to request authorization and the types supported by the authorization server.</p>
+<p>(B) 客户端收到一个代表了资源所有者许可了的认证授权，这个过程使用了这个<a href="https://tools.ietf.org/html/rfc6749" title="说明书" target="_blank" rel="external">说明书</a>里定义的四种授权方式或者一种扩充的授权方式。认证授权的方式取决于客户端请求授权的方法和认证服务器支持的方式。</p>
+<p>(C) The client requests an access token by authenticating with the authorization server and presenting the authorization grant.</p>
+<p>(C) 客户端通过对认证服务器进行认证并且代表认证授权来请求一个令牌(access token)。</p>
+<p>(D) The authorization server authenticates the client and validates the authorization grant, and if valid, issues an access token.</p>
+<p>(D) 认证服务器授权给客户端并且确认这个认证授权是否有效，如果有效，则发放令牌。</p>
+<p>(E) (F) 就是客户端有了令牌以后就可以通过令牌从资源服务器(Resource Server)得到受保护的资源了。</p>
+<p>我感觉这里客户端这个概念容易让人产生误解，因为 client 很容易被误解成B/S结构中的客户端浏览器。而其实这里 “客户端”（client）是指 Third-party application：第三方应用程序。详细的定义可以参考 <a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" title=" 二、名词定义 " target="_blank" rel="external">二、名词定义</a> ，还可以看看 <a href="http://www.fising.cn/2011/03/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA-oauth-%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8.shtml" title=" 一步一步搭建 OAuth 认证服务器  " target="_blank" rel="external">一步一步搭建 OAuth 认证服务器</a> 关于 OAuth2 的比喻。<br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/diagram-oauth2.0.png" alt="diagram-oauth2.0"></p>
+<h3 id="3-oauth2-实现方式"><a href="#3-oauth2-实现方式" class="headerlink" title="3. oauth2 实现方式"></a>3. oauth2 实现方式</h3><p><a href="http://oauth.net/code/" title="The OAuth community" target="_blank" rel="external">The OAuth community</a> 有java，php，ruby 等各种语言的oauth2实现的版本。我选择的是 <a href="http://bshaffer.github.io/oauth2-server-php-docs/" title="oauth2 server php" target="_blank" rel="external">oauth2 server php</a> ，可以在 <a href="https://github.com/bshaffer/oauth2-server-php/tree/v0.9" title="github" target="_blank" rel="external">github</a> 上下载到源代码，因为看上去他们的logo做得最漂亮。</p>
+<h3 id="4-demo"><a href="#4-demo" class="headerlink" title="4. demo"></a>4. demo</h3><p><a href="http://brentertainment.com/oauth2/" title="brentertainment.com" target="_blank" rel="external">brentertainment.com</a> 上有已经部署在网上的demo，如果搭建好 oauth2 server php 以后就应该也是这个样子。</p>
+<p>目标1 第三方登录验证 对应的流程图，Authorization Code这种授权方式相对来讲比较严格，需要用户(resource owner)确认客户端（client）才能获得令牌(token)。<br><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/Authorization-Code-Flow.png" alt="Authorization-Code-Flow"></p>
+<p>目标2 将网站的资源提供给第三方平台 对应的流程图，client credentials这种授权方式就是客户端(client)未经过用户(resource owner)确认直接获得令牌(token)。</p>
+<p><img src="http://oeb0ci3nk.bkt.clouddn.com/image/blog/client-credentials-flow.png" alt="client-credentials-flow"><br>根据 <a href="http://bshaffer.github.io/oauth2-server-php-docs/" title="OAuth2 Server PHP" target="_blank" rel="external">OAuth2 Server PHP</a> 提供的 <a href="http://bshaffer.github.io/oauth2-server-php-docs/cookbook/" title="cookbook" target="_blank" rel="external">cookbook</a>，一步步搭建demo。</p>
+<h4 id="4-1-首先建立一个文件夹-my-oauth2-walkthrough，将下载下来的php文件拷贝进去。"><a href="#4-1-首先建立一个文件夹-my-oauth2-walkthrough，将下载下来的php文件拷贝进去。" class="headerlink" title="4.1: 首先建立一个文件夹 my-oauth2-walkthrough，将下载下来的php文件拷贝进去。"></a>4.1: 首先建立一个文件夹 my-oauth2-walkthrough，将下载下来的php文件拷贝进去。</h4><h4 id="4-2-在数据库中创建表"><a href="#4-2-在数据库中创建表" class="headerlink" title="4.2: 在数据库中创建表"></a>4.2: 在数据库中创建表</h4><pre><code>CREATE TABLE oauth_clients (client_id VARCHAR(80) NOT NULL, client_secret VARCHAR(80), redirect_uri VARCHAR(2000) NOT NULL, grant_types VARCHAR(80), scope VARCHAR(100), user_id VARCHAR(80), CONSTRAINT clients_client_id_pk PRIMARY KEY (client_id));
+CREATE TABLE oauth_access_tokens (access_token VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT access_token_pk PRIMARY KEY (access_token));
+CREATE TABLE oauth_authorization_codes (authorization_code VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), redirect_uri VARCHAR(2000), expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT auth_code_pk PRIMARY KEY (authorization_code));
+CREATE TABLE oauth_refresh_tokens (refresh_token VARCHAR(40) NOT NULL, client_id VARCHAR(80) NOT NULL, user_id VARCHAR(255), expires TIMESTAMP NOT NULL, scope VARCHAR(2000), CONSTRAINT refresh_token_pk PRIMARY KEY (refresh_token));
+CREATE TABLE oauth_users (username VARCHAR(255) NOT NULL, password VARCHAR(2000), first_name VARCHAR(255), last_name VARCHAR(255), CONSTRAINT username_pk PRIMARY KEY (username));
+CREATE TABLE oauth_scopes (scope TEXT, is_default BOOLEAN);
+CREATE TABLE oauth_jwt (client_id VARCHAR(80) NOT NULL, subject VARCHAR(80), public_key VARCHAR(2000), CONSTRAINT jwt_client_id_pk PRIMARY KEY (client_id));
+</code></pre><h4 id="4-3-搭建-OAuth2-Server"><a href="#4-3-搭建-OAuth2-Server" class="headerlink" title="4.3: 搭建 OAuth2 Server"></a>4.3: 搭建 OAuth2 Server</h4><p>我们需要创建并且配置我们自己的 OAuth2 Server object. 在我们的应用里它将会被所有其它的程序用到。给它命名为 server.php，也就是上图Figure 6 Client Credentials Flow 中右边的认证服务器 Authorization Server。</p>
+<pre><code>$dsn      = &apos;mysql:dbname=my_oauth2_db;host=localhost&apos;;
+$username = &apos;root&apos;;
+$password = &apos;&apos;;
+// error reporting (this is a demo, after all!)
+ini_set(&apos;display_errors&apos;,1);error_reporting(E_ALL);
+
+// Autoloading (composer is preferred, but for this example let&apos;s just do this)
+require_once(&apos;oauth2-server-php/src/OAuth2/Autoloader.php&apos;);
+OAuth2\Autoloader::register();
+
+// $dsn is the Data Source Name for your database, for exmaple &quot;mysql:dbname=my_oauth2_db;host=localhost&quot;
+$storage = new OAuth2\Storage\Pdo(array(&apos;dsn&apos; =&gt; $dsn, &apos;username&apos; =&gt; $username, &apos;password&apos; =&gt; $password));
+
+// Pass a storage object or array of storage objects to the OAuth2 server class
+$server = new OAuth2\Server($storage);
+
+// Add the &quot;Client Credentials&quot; grant type (it is the simplest of the grant types)
+$server-&gt;addGrantType(new OAuth2\GrantType\ClientCredentials($storage));
+
+// Add the &quot;Authorization Code&quot; grant type (this is where the oauth magic happens)
+$server-&gt;addGrantType(new OAuth2\GrantType\AuthorizationCode($storage));
+</code></pre><p>注意：请一定要定义适合你自己数据库的 $dsn, $username, 和 $password。</p>
+<h4 id="4-4-创建一个-Token-Controller"><a href="#4-4-创建一个-Token-Controller" class="headerlink" title="4.4: 创建一个 Token Controller"></a>4.4: 创建一个 Token Controller</h4><p>接下里我们将创建 Token Controller。 这个URI将一个 OAuth2.0 令牌返回给客户端(Client)。 这里是token.php 文件中一个token controller的一个例子：</p>
+<pre><code>// include our OAuth2 Server object
+require_once __DIR__.&apos;/server.php&apos;;
+
+// Handle a request for an OAuth2.0 Access Token and send the response to the client
+$server-&gt;handleTokenRequest(OAuth2\Request::createFromGlobals())-&gt;send();
+</code></pre><p>这样就创建完了Token Controller，接下来往数据库里插入一条数据来创建一个客户端 (OAuth Client)，相当于第三方应用程序（OAuth Client）注册:</p>
+<pre><code>INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES (&quot;testclient&quot;, &quot;testpass&quot;, &quot;http://fake/&quot;);
+</code></pre><p>如果你在linux下，可以直接输入下面的命令来模拟客户端访问token.php，这里就是模拟 Figure 6 Client Credentials Flow 的流程，客户端从认证服务器请求一个令牌(Access Token):</p>
+<pre><code>curl -u testclient:testpass http://localhost/my-oauth2-walkthrough/token.php -d &apos;grant_type=client_credentials&apos;
+</code></pre><p>也可以自己写一个php文件来模拟:</p>
+<pre><code>$url = &apos;http://localhost/my-oauth2-walkthrough/token.php&apos;;
+$post_data = array(
+   &apos;grant_type&apos;      =&gt; &apos;client_credentials&apos;
+);
+$auth_name=&apos;testclient&apos;;
+$auth_pass = &apos;testpass&apos;;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_USERPWD, $auth_name.&apos;:&apos;.$auth_pass); 
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+$output = curl_exec($ch);
+if($output===FALSE){
+  echo &quot;cURL Error: &quot; . curl_error($ch);
+}
+curl_close($ch);
+print_r($output);
+</code></pre><p>如果一切正常，你应该可以看到下面的输出，表示获得令牌(Access Token)成功：</p>
+<pre><code>{&quot;access_token&quot;:&quot;03807cb390319329bdf6c777d4dfae9c0d3b3c35&quot;,&quot;expires_in&quot;:3600,&quot;token_type&quot;:&quot;bearer&quot;,&quot;scope&quot;:null}
+</code></pre><h4 id="4-5-创建一个-Resource-Controller"><a href="#4-5-创建一个-Resource-Controller" class="headerlink" title="4.5: 创建一个 Resource Controller"></a>4.5: 创建一个 Resource Controller</h4><p>现在可以根据获得的令牌(token)来请求服务器的资源了，也就是客户端(client)可以访问资源服务器的API。<br>    // include our OAuth2 Server object<br>    require_once <strong>DIR</strong>.’/server.php’;</p>
+<pre><code>// Handle a request to a resource and authenticate the access token
+if (!$server-&gt;verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
+    $server-&gt;getResponse()-&gt;send();
+    die;
+}
+echo json_encode(array(&apos;success&apos; =&gt; true, &apos;message&apos; =&gt; &apos;You accessed my APIs!&apos;));
+</code></pre><p>如果你在linux下，可以直接输入下面的命令来模拟客户端访问resource.php，（用上一步得到token替换YOUR_TOKEN）:</p>
+<pre><code>curl http://localhost/my-oauth2-walkthrough/resource.php -d &apos;access_token=YOUR_TOKEN&apos;
+</code></pre><p>也可以自己写一个php文件来模拟:</p>
+<pre><code>$_post_url = &apos;http://localhost/my-oauth2-walkthrough/resource.php&apos;;
+
+$post = &apos;access_token=YOUR_TOKEN&apos;;
+
+$curl = curl_init ( $_post_url );
+curl_setopt ( $curl, CURLOPT_HEADER, 0 );
+$header = array ();
+$header [] = &apos;Host:localhost&apos;;
+$header [] = &apos;Connection: keep-alive&apos;;
+$header [] = &apos;User-Agent: ozilla/5.0 (X11; Linux i686) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1&apos;;
+$header [] = &apos;Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&apos;;
+$header [] = &apos;Accept-Language: zh-CN,zh;q=0.8&apos;;
+$header [] = &apos;Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3&apos;;
+$header [] = &apos;Cache-Control:max-age=0&apos;;
+$header [] = &apos;Content-Type:application/x-www-form-urlencoded&apos;;
+curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
+curl_setopt ( $curl, CURLOPT_POST, 1);
+curl_setopt ( $curl, CURLOPT_POSTFIELDS, $post );
+$result = curl_exec ( $curl );
+curl_close ( $curl );
+var_dump ( $result );
+</code></pre><p>如果一切正常，你应该可以看到下面的输出（这个json串就代表了资源服务器提供的资源）：</p>
+<pre><code>{&quot;success&quot;:true,&quot;message&quot;:&quot;You accessed my APIs!&quot;}
+</code></pre><h4 id="4-6-创建一个-Authorize-Controller"><a href="#4-6-创建一个-Authorize-Controller" class="headerlink" title="4.6: 创建一个 Authorize Controller"></a>4.6: 创建一个 Authorize Controller</h4><p>Authorize Controllers 是 OAuth2 的“杀手级特性”，它允许你的用户给第三方应用授权。不同于上面第一个 token controller 例子里直接发放令牌，在下面这个例子中一个 authorize controller 只有在用户(resource owner) 授权了请求的情况下才发放一个令牌(token)。 这里就是模拟 Figure 3 Authorization Code Flow 的流程，创建 authorize.php:</p>
+<pre><code>// include our OAuth2 Server object
+require_once __DIR__.&apos;/server.php&apos;;
+
+$request = OAuth2\Request::createFromGlobals();
+$response = new OAuth2\Response();
+
+// validate the authorize request
+if (!$server-&gt;validateAuthorizeRequest($request, $response)) {
+    $response-&gt;send();
+    die;
+}
+// display an authorization form
+if (empty($_POST)) {
+  exit(&apos;
+&lt;form method=&quot;post&quot;&gt;
+  &lt;label&gt;Do You Authorize TestClient?&lt;/label&gt;&lt;br /&gt;
+  &lt;input type=&quot;submit&quot; name=&quot;authorized&quot; value=&quot;yes&quot;&gt;
+  &lt;input type=&quot;submit&quot; name=&quot;authorized&quot; value=&quot;no&quot;&gt;
+&lt;/form&gt;&apos;);
+}
+
+// print the authorization code if the user has authorized your client
+$is_authorized = ($_POST[&apos;authorized&apos;] === &apos;yes&apos;);
+$server-&gt;handleAuthorizeRequest($request, $response, $is_authorized);
+if ($is_authorized) {
+  // this is only here so that you get to see your code in the cURL request. Otherwise, we&apos;d redirect back to the client
+  $code = substr($response-&gt;getHttpHeader(&apos;Location&apos;), strpos($response-&gt;getHttpHeader(&apos;Location&apos;), &apos;code=&apos;)+5, 40);
+  exit(&quot;SUCCESS! Authorization Code: $code&quot;);
+}
+$response-&gt;send();
+</code></pre><p>现在将下面的URL粘贴到你的浏览器中:</p>
+<pre><code>http://localhost/my-oauth2-walkthrough/authorize.php?response_type=code&amp;client_id=testclient&amp;state=xyz
+</code></pre><p>页面就会显示一个认证表单，点击 “yes” 按钮以后就会在页面上显示一个 authorization code， 这个 authorization code 现在可以用来从你之前创建的token.php那里获得一个令牌(access token)。使用这个返回的 authorization code 作为参数访问 token.php：</p>
+<pre><code>curl -u testclient:testpass http://localhost/token.php -d &apos;grant_type=authorization_code&amp;code=YOUR_CODE&apos;
+</code></pre><p>同样也可以自己写一个php文件来模拟:</p>
+<pre><code>ini_set(&apos;date.timezone&apos;,&apos;Asia/Shanghai&apos;); 
+$url = &apos;http://localhost/my-oauth2-walkthrough/token.php&apos;;
+$post_data =
+array(
+   &apos;grant_type&apos;      =&gt; &apos;authorization_code&apos;,
+   &apos;redirect_uri&apos; =&gt; &apos;YOUR_REDIRECT_URL&apos;,
+   &apos;code&apos; =&gt; &apos;YOUR_CODE&apos;
+);
+$auth_name=&apos;testclient&apos;;
+$auth_pass = &apos;testpass&apos;;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_USERPWD, $auth_name.&apos;:&apos;.$auth_pass); 
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+$output = curl_exec($ch);
+if($output===FALSE){
+  echo &quot;cURL Error: &quot; . curl_error($ch);
+}
+curl_close($ch);
+print_r($output);
+</code></pre><p>就像之前一样，你将会收到一个令牌 access token ：</p>
+<pre><code>{&quot;access_token&quot;:&quot;6f05ad622a3d32a5a81aee5d73a5826adb8cbf63&quot;,&quot;expires_in&quot;:3600,&quot;token_type&quot;:&quot;bearer&quot;,&quot;scope&quot;:null}
+</code></pre><p>注意：一定要迅速的进行上述操作，因为 Authorization Codes 30秒就过期了！</p>
+<p>参考资料：<br><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" title="理解OAuth 2.0" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html</a><br><a href="http://www.fising.cn/docs/rfc5849-oauth-core-1.0-final-cn.html#anchor3" title="OAuth 核心 1.0 术语定义" target="_blank" rel="external">http://www.fising.cn/docs/rfc5849-oauth-core-1.0-final-cn.html#anchor3</a><br><a href="http://www.fising.cn/2011/06/%E5%9F%BA%E4%BA%8Ephp%E7%9A%84oauth%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%90%AD%E5%BB%BA.shtml" title="基于 PHP &amp; MySQL 搭建 OAuth Server " target="_blank" rel="external">http://www.fising.cn/2011/06/%E5%9F%BA%E4%BA%8Ephp%E7%9A%84oauth%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%90%AD%E5%BB%BA.shtml</a><br><a href="http://www.fising.cn/2011/03/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA-oauth-%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8.shtml" title="一步一步搭建 OAuth 认证服务器" target="_blank" rel="external">http://www.fising.cn/2011/03/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BA-oauth-%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8.shtml</a><br><a href="http://oauth.net/code/" title="http://oauth.net/2/" target="_blank" rel="external">http://oauth.net/code/</a><br><a href="http://www.rfcreader.com/#rfc6749_line591" title="The OAuth 2.0 Authorization Framework" target="_blank" rel="external">http://www.rfcreader.com/#rfc6749_line591</a><br><a href="http://www.open-open.com/lib/view/open1392863557428.html" title="帮你深入理解OAuth2.0协议" target="_blank" rel="external">http://www.open-open.com/lib/view/open1392863557428.html</a><br><a href="http://blog.csdn.net/mengxiangbaidu/article/details/6948721" title="PHP CURL POST提交" target="_blank" rel="external">http://blog.csdn.net/mengxiangbaidu/article/details/6948721</a><br><a href="http://www.cnblogs.com/pengyingh/articles/2377968.html" title="oauth2开放认证协议原理及案例分析" target="_blank" rel="external">http://www.cnblogs.com/pengyingh/articles/2377968.html</a><br><a href="https://knpuniversity.com/screencast/oauth" title="OAuth2 in 8 Steps" target="_blank" rel="external">https://knpuniversity.com/screencast/oauth</a><br><a href="http://tools.ietf.org/html/rfc6749" title="The OAuth 2.0 Authorization Framework" target="_blank" rel="external">http://tools.ietf.org/html/rfc6749</a><br><a href="http://brentertainment.com/oauth2/" title="OAuth2.0 Demo Application" target="_blank" rel="external">http://brentertainment.com/oauth2/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/authentication/" rel="tag">#authentication</a>
+          
+            <a href="/tags/OAuth2/" rel="tag">#OAuth2</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/17/tech/" rel="prev" title="html和css摘要">
+                html和css摘要 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="vergilius" />
+          <p class="site-author-name" itemprop="name">vergilius</p>
+          <p class="site-description motion-element" itemprop="description">vergilius.me</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-目标"><span class="nav-number">1.</span> <span class="nav-text">1. 目标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1：目标1-第三方登录验证"><span class="nav-number">1.1.</span> <span class="nav-text">1.1：目标1 第三方登录验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2：目标2-将网站的资源提供给第三方平台"><span class="nav-number">1.2.</span> <span class="nav-text">1.2：目标2 将网站的资源提供给第三方平台</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-oauth2-介绍"><span class="nav-number">2.</span> <span class="nav-text">2. oauth2 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-oauth2-实现方式"><span class="nav-number">3.</span> <span class="nav-text">3. oauth2 实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-demo"><span class="nav-number">4.</span> <span class="nav-text">4. demo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-首先建立一个文件夹-my-oauth2-walkthrough，将下载下来的php文件拷贝进去。"><span class="nav-number">4.1.</span> <span class="nav-text">4.1: 首先建立一个文件夹 my-oauth2-walkthrough，将下载下来的php文件拷贝进去。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-在数据库中创建表"><span class="nav-number">4.2.</span> <span class="nav-text">4.2: 在数据库中创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-搭建-OAuth2-Server"><span class="nav-number">4.3.</span> <span class="nav-text">4.3: 搭建 OAuth2 Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-创建一个-Token-Controller"><span class="nav-number">4.4.</span> <span class="nav-text">4.4: 创建一个 Token Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-创建一个-Resource-Controller"><span class="nav-number">4.5.</span> <span class="nav-text">4.5: 创建一个 Resource Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-创建一个-Authorize-Controller"><span class="nav-number">4.6.</span> <span class="nav-text">4.6: 创建一个 Authorize Controller</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vergilius</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

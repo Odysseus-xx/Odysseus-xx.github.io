@@ -1,0 +1,1385 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1.命名规范这些是Bootstrap 给出的命名规范：
+语法
+用两个空格来代替制表符（tab） – 这是唯一能保证在所有环境下获得一致展现的方法。
+为选择器分组时，将单独的选择器单独放在一行。
+为了代码的易读性，在每个声明块的左花括号前添加一个空格。
+声明块的右花括号应当单独成行。
+每条声明语句的 : 后应该插入一个空格。
+为了获得更准确的错误报告，每条声明都应该独占一行。
+所有声明语句都应当以分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html和css摘要">
+<meta property="og:url" content="http://vergilius.me/2016/08/17/tech/index.html">
+<meta property="og:site_name" content="vergilius的博客">
+<meta property="og:description" content="1.命名规范这些是Bootstrap 给出的命名规范：
+语法
+用两个空格来代替制表符（tab） – 这是唯一能保证在所有环境下获得一致展现的方法。
+为选择器分组时，将单独的选择器单独放在一行。
+为了代码的易读性，在每个声明块的左花括号前添加一个空格。
+声明块的右花括号应当单独成行。
+每条声明语句的 : 后应该插入一个空格。
+为了获得更准确的错误报告，每条声明都应该独占一行。
+所有声明语句都应当以分">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/css-shorthand-cheat-sheet.jpg">
+<meta property="og:image" content="http://oeb0ci3nk.bkt.clouddn.com/float-clear.jpg">
+<meta property="og:updated_time" content="2016-08-17T10:44:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html和css摘要">
+<meta name="twitter:description" content="1.命名规范这些是Bootstrap 给出的命名规范：
+语法
+用两个空格来代替制表符（tab） – 这是唯一能保证在所有环境下获得一致展现的方法。
+为选择器分组时，将单独的选择器单独放在一行。
+为了代码的易读性，在每个声明块的左花括号前添加一个空格。
+声明块的右花括号应当单独成行。
+每条声明语句的 : 后应该插入一个空格。
+为了获得更准确的错误报告，每条声明都应该独占一行。
+所有声明语句都应当以分">
+<meta name="twitter:image" content="http://oeb0ci3nk.bkt.clouddn.com/css-shorthand-cheat-sheet.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vergilius.me/2016/08/17/tech/"/>
+
+  <title> html和css摘要 | vergilius的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">vergilius的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Know Yourself</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html和css摘要
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-17T18:44:12+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-命名规范"><a href="#1-命名规范" class="headerlink" title="1.命名规范"></a>1.命名规范</h3><p>这些是Bootstrap 给出的命名规范：</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><ul>
+<li>用两个空格来代替制表符（tab） – 这是唯一能保证在所有环境下获得一致展现的方法。</li>
+<li>为选择器分组时，将单独的选择器单独放在一行。</li>
+<li>为了代码的易读性，在每个声明块的左花括号前添加一个空格。</li>
+<li>声明块的右花括号应当单独成行。</li>
+<li>每条声明语句的 : 后应该插入一个空格。</li>
+<li>为了获得更准确的错误报告，每条声明都应该独占一行。</li>
+<li>所有声明语句都应当以分号结尾。最后一条声明语句后面的分号是可选的，但是，如果省略这个分号，你的代码可能更易出错。</li>
+<li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格（例如，box-shadow）。</li>
+<li>不要在 rgb()、rgba()、hsl()、hsla() 或 rect() 值的内部的逗号后面插入空格。这样利于从多个属性值（既加逗号也加空格）中区分多个颜色值（只加逗号，不加空格）。</li>
+<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替 -0.5px）。</li>
+<li>十六进制值应该全部小写，例如，#fff。在扫描文档时，小写字符易于分辨，因为他们的形式更易于区分。</li>
+<li>尽量使用简写形式的十六进制值，例如，用 #fff 代替#ffffff。</li>
+<li>为选择器中的属性添加双引号，例如，input[type=”text”]。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。</li>
+<li><p>避免为 0 值指定单位，例如，用 margin: 0; 代替margin: 0px;。</p>
+<p>  /<em> Bad CSS </em>/<br>  .selector, .selector-secondary, .selector[type=text] {</p>
+<pre><code>padding:15px;
+margin:0px 0px 15px;
+background-color:rgba(0, 0, 0, 0.5);
+box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
+</code></pre><p>  }</p>
+<p>  /<em> Good CSS </em>/<br>  .selector,<br>  .selector-secondary,<br>  .selector[type=”text”] {</p>
+<pre><code>padding: 15px;
+margin-bottom: 15px;
+background-color: rgba(0,0,0,.5);
+box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+</code></pre><p>  }</p>
+</li>
+</ul>
+<h4 id="声明顺序"><a href="#声明顺序" class="headerlink" title="声明顺序"></a>声明顺序</h4><p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
+<ol>
+<li>Positioning</li>
+<li>Box model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ol>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。</p>
+<p>其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
+<p>完整的属性列表及其排列顺序请参考<a href="http://twitter.github.com/recess" title="recess" target="_blank" rel="external">http://twitter.github.com/recess</a></p>
+<pre><code>.declaration-order {
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  /* Box-model */
+  display: block;
+  float: right;
+  width: 100px;
+  height: 100px;
+
+  /* Typography */
+  font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+
+  /* Visual */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+
+  /* Misc */
+  opacity: 1;
+}
+</code></pre><h4 id="单行规则声明"><a href="#单行规则声明" class="headerlink" title="单行规则声明"></a>单行规则声明</h4><p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
+<p>这样做的关键因素是为了错误检测 – 例如，CSS 校验器指出在 183 行有语法错误。如果是单行单条声明，你就不会忽略这个错误；如果是单行多条声明的话，你就要仔细分析避免漏掉错误了。<br>    /<em> Single declarations on one line </em>/<br>      .span1 { width: 60px; }<br>      .span2 { width: 140px; }<br>      .span3 { width: 220px; }</p>
+<pre><code>/* Multiple declarations, one per line */
+.sprite {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  background-image: url(../img/sprite.png);
+}
+.icon           { background-position: 0 0; }
+.icon-home      { background-position: 0 -20px; }
+.icon-account   { background-position: 0 -40px; }
+</code></pre><h4 id="简写形式的属性声明"><a href="#简写形式的属性声明" class="headerlink" title="简写形式的属性声明"></a>简写形式的属性声明</h4><p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。常见的滥用简写属性声明的情况如下：</p>
+<ul>
+<li>padding</li>
+<li>margin</li>
+<li>font</li>
+<li>background</li>
+<li>border</li>
+<li>border-radius<br>大部分情况下，我们不需要为简写形式的属性声明指定所有值。例如，HTML 的 heading 元素只需要设置上、下边距（margin）的值，因此，在必要的时候，只需覆盖这两个值就可以。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</li>
+</ul>
+<p>MDN（Mozilla Developer Network）上一篇非常好的关于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties" title="shorthand properties" target="_blank" rel="external">shorthand properties </a>的文章，对于不太熟悉简写属性声明及其行为的用户很有用。<br>    /<em> Bad example </em>/<br>      .element {<br>        margin: 0 0 10px;<br>        background: red;<br>        background: url(“image.jpg”);<br>        border-radius: 3px 3px 0 0;<br>      }</p>
+<pre><code>/* Good example */
+.element {
+  margin-bottom: 10px;
+  background-color: red;
+  background-image: url(&quot;image.jpg&quot;);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+</code></pre><h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>代码是由人编写并维护的。请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。</p>
+<p>对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。<br>    /<em> Bad example </em>/<br>    /<em> Modal header </em>/<br>    .modal-header {<br>      …<br>    }</p>
+<pre><code>/* Good example */
+/* Wrapping element for .modal-title and .modal-close */
+.modal-header {
+  ...
+}
+</code></pre><h4 id="class-命名"><a href="#class-命名" class="headerlink" title="class 命名"></a>class 命名</h4><ul>
+<li>class 名称中只能出现小写字符和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关 class 的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。</li>
+<li>避免过度任意的简写。.btn 代表 button，但是 .s 不能表达任何意思。</li>
+<li>class 名称应当尽可能短，并且意义明确。</li>
+<li>使用有意义的名称。使用有组织的或目的明确的名称，不要使用表现形式（presentational）的名称。</li>
+<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
+<li><p>使用 .js-<em> class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。<br>在为 Sass 和 Less 变量命名是也可以参考上面列出的各项规范。<br>  /</em> Bad example */<br>  .t { … }<br>  .red { … }<br>  .header { … }</p>
+<p>  /<em> Good example </em>/<br>  .tweet { … }<br>  .important { … }<br>  .tweet-header { … }</p>
+</li>
+</ul>
+<h4 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h4><ul>
+<li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
+<li>对于经常出现的组件，避免使用属性选择器（例如，[class^=”…”]）。浏览器的性能会受到这些因素的影响。</li>
+<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3 。</li>
+<li><p>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）（例如，不使用带前缀的 class 时 – 前缀类似于命名空间）。<br>扩展阅读：<br><a href="http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/" title="Scope CSS classes with prefixes" target="_blank" rel="external">http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/</a><br><a href="http://markdotto.com/2012/03/02/stop-the-cascade/" title="Stop the cascade" target="_blank" rel="external">http://markdotto.com/2012/03/02/stop-the-cascade/</a><br>  /<em> Bad example </em>/<br>  span { … }<br>  .page-container #stream .stream-item .tweet .tweet-header .username { … }<br>  .avatar { … }</p>
+<p>  /<em> Good example </em>/<br>  .avatar { … }<br>  .tweet-header .username { … }<br>  .tweet .avatar { … }</p>
+</li>
+</ul>
+<h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><ul>
+<li>切图后保存成png或者gif格式，而不是jpg格式以减小图片大小，在能保证图片质量的情况下尽量使用gif，因为gif一般大小比较小。</li>
+<li>css里尽量不要用id， id是由程序员来添加写程序用。</li>
+<li>剪切图片的时候尽量沿图像颜色边界剪切，这样可以尽量减小图片的大小。</li>
+<li>因为浏览器会分开下载每幅图片，所以它需要知道图片的高度和宽度，这样的话，当下载图片的时候，浏览器才能为每幅图片创建一个占位符。否则，如果在每幅图片被下载下来之后，浏览器才知道它的真实尺寸，它就会对页面进行重新排列。这会导致页面渲染的速度变慢并且是用户恼怒。要设置一幅图片的尺寸，可以采用元素的width 和 height 属性或者CSS的width 和 height 属性。 不必两者都使用，css属性会覆盖HTML属性的。</li>
+<li>浏览器选择的布局算法类型依赖于表格的类型，并且依赖于单元格所设置的宽度类型。换句话说，你将单元格的值设为auto, 100px 或者20%，这3者对应的结果有很大的不同。不仅仅是宽度值的不同，宽度的类型也分为好几种：自动，固定或者百分比。这些宽度的类型结合宽度的值，会导致浏览器使用不同的算法设置列的尺寸。</li>
+<li>同一个模块尽量按照想要展示的顺序来排列两排li，比如：</li>
+</ul>
+<p>1 5<br>2 6<br>3 7<br>4 8</p>
+<p>或者</p>
+<p>1 2<br>3 4<br>5 6<br>7 8</p>
+<p>Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一些建议：</p>
+<h4 id="css文件命名"><a href="#css文件命名" class="headerlink" title="css文件命名"></a>css文件命名</h4><p>I recommend naming stylesheets using single-word, lowercase names. This keeps stylesheet names simple and easy to remember, and works safely in all operating systems.I suggest you use a name that describes the scope and purpose of the stylesheet, such as site.css, page.css, handheld.css, print.css, and so forth. The standard extension for a stylesheet is .css. 我推荐使用单个而且是小写的英文单词。这样能保证名称好记而且在所有操作系统上都表现一致。我建议你使用一个能描述这个文件范围和目的名称，例如 site.css, page.css, handheld.css, print.css 等。标准的后缀名是.css。</p>
+<h4 id="调试小技巧"><a href="#调试小技巧" class="headerlink" title="调试小技巧"></a>调试小技巧</h4><ul>
+<li>You can disable a rule by placing the number 1 (or any other character for that matter) immediately in front of a property name; for example, 1background-color:white. This invalidates the rule, but only the one rule. All other valid rules before and after the invalid one are still processed. I often use this technique to invalidate one rule temporarily to disable its effect while testing other rules. 你可以在一个属性前面设置1，例如： 1background-color:white. 这个属性会失效，但其它在这个属性前面和后面的属性仍然有效，我经常使用这个技巧来临时验证一条属性，通过让其失效来测试其它的属性。</li>
+<li>For example, you can put a border around all elements descended from by using html <em> { border:1px solid black; }. I often use this code to see the nesting of all elements in a document.比如说，你在调试css时可以通过设置 html </em> { border:1px solid black; }来给所有的元素加上一条边框，我经常这样做来查看所有元素之间的嵌套关系。</li>
+</ul>
+<h4 id="html属性"><a href="#html属性" class="headerlink" title="html属性"></a>html属性</h4><ul>
+<li>font属性，即使只设置了一个值也将其他所有值都设置为默认值了。</li>
+</ul>
+<p>font is a particularly troublesome shorthand property because it combines so many properties into one, and all these values are inherited! These properties include font-family, font-size, font-weight, font-variant, font-style, and line-height. Remember that assigning even one value to font, such as font:1em;,causes the browser to set the default values for all these properties!</p>
+<ul>
+<li>background 属性</li>
+</ul>
+<p>The background property is a composite of all these properties. The property values can be presented in any order. Each property value is separated by a space. background:none transparent repeat left top scroll; is the default. Whenever you assign a background-image to an element, you should also assign a background-color and a contrasting color. This provides a fallback in case the image does not load, and it ensures text does not become invisible or hard to see, such as white text on a white background.</p>
+<ul>
+<li>图片文字</li>
+</ul>
+<p>确保有图片的位置都有文本，这样在图片下载失败的时候也能正确的显示文字。文字和图片的宽高一样。</p>
+<h3 id="2-css概览"><a href="#2-css概览" class="headerlink" title="2.css概览"></a>2.css概览</h3><p>这张图显示了css中常见的属性的顺序：<br><img src="http://oeb0ci3nk.bkt.clouddn.com/css-shorthand-cheat-sheet.jpg" alt="css-shorthand-cheat-sheet"><br>这里有css 规范：<br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" title="CSS reference" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference</a></p>
+<h3 id="3-css-reset-规则"><a href="#3-css-reset-规则" class="headerlink" title="3.css reset 规则"></a>3.css reset 规则</h3><p>每种浏览器都有自己的默认css设置，比如每种浏览器都会赋予</p><h1>元素不同的size 和 margin，如果自己在css中设定好<h1>的size和margin就能让h1 在所有的浏览器中有一致的表现。雅虎的 YUI 3 CSS Reset<br>    /**<p></p>
+<pre><code> * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+/*
+    TODO will need to remove settings on HTML since we can&apos;t namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
+*/
+html{
+    color:#000;
+    background:#FFF;
+}
+/*
+    TODO remove settings on BODY since we can&apos;t namespace it.
+*/
+/*
+    TODO test putting a class on HEAD.
+        - Fails on FF.
+*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,
+img {
+    border:0;
+}
+/*
+    TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style:normal;
+    font-weight:normal;
+}
+
+ol,
+ul {
+    list-style:none;
+}
+
+caption,
+th {
+    text-align:left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,
+q:after {
+    content:&apos;&apos;;
+}
+abbr,
+acronym {
+    border:0;
+    font-variant:normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+    vertical-align:text-top;
+}
+sub {
+    vertical-align:text-bottom;
+}
+input,
+textarea,
+select {
+    font-family:inherit;
+    font-size:inherit;
+    font-weight:inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+    *font-size:100%;
+}
+/*because legend doesn&apos;t inherit in IE */
+legend {
+    color:#000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
+
+
+Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中总结归纳的css reset 规则：
+    Complete Baseline Stylesheet
+/* BLOCK ELEMENTS */
+html, div, map, dt, form { display:block; }
+body       { display:block; margin:8px; font-family:serif; font-size:medium; }
+p, dl
+{ display:block; margin-top:1em; margin-bottom:1em; }
+dd
+{ display:block; margin-left:40px; }
+address    { display:block; font-style:italic; }
+blockquote { display:block; margin:1em 40px; }
+h1 { display:block; font-size:2em;      font-weight:bold;   margin:0.67em 0; }
+h2 { display:block; font-size:1.5em;    font-weight:bold;   margin:0.83em 0; }
+h3 { display:block; font-size:1.125em;  font-weight:bold;   margin:1em    0; }
+h4 { display:block; font-size:1em;      font-weight:bold;   margin:1.33em 0; }
+h5 { display:block; font-size:0.75em;   font-weight:bold;   margin:1.67em 0; }
+h6 { display:block; font-size:0.5625em; font-weight:bold;   margin:2.33em 0; }
+pre{ display:block; font-family:monospace; white-space:pre; margin:1em    0; }
+hr { display:block; height:2px; border:1px; margin:0.5em auto 0.5em auto; }
+/* TABLE ELEMENTS */
+table   { border-spacing:2px; border-collapse:separate;
+margin-top:0; margin-bottom:0; text-indent:0; }
+caption { text-align:center; }
+td
+{ padding:1px; }
+th
+{ font-weight:bold; padding:1px; }
+tbody, thead, tfoot { vertical-align:middle; }
+/* INLINE ELEMENTS */
+strong { font-weight:bold; }
+cite, em, var, dfn { font-style:italic; }
+code, kbd, samp { font-family:monospace; }
+ins { text-decoration:underline; }
+del { text-decoration:line-through; }
+sub { vertical-align:-0.25em; font-size:smaller; line-height:normal; }
+sup { vertical-align: 0.5em;
+font-size:smaller; line-height:normal; }
+abbr[title], acronym[title] { border-bottom:dotted 1px; }
+/* LIST ELEMENTS */
+ul { list-style-type:disc;    margin:1em 0; margin-left:40px; padding-left:0;}
+ol { list-style-type:decimal; margin:1em 0; margin-left:40px; padding-left:0;}
+/* remove top &amp; bottom margins for nested lists */
+ul ul, ul ol, ul dl, ol ul, ol ol, ol dl, dl ul, dl ol, dl dl
+{ margin-top:0; margin-bottom:0; }
+/* use circle when ul nested 2 deep */
+ol ul, ul ul { list-style-type:circle; }
+/* use square when ul nested 3 deep */
+ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type:square; }
+</code></pre><h3 id="4-clear的用法"><a href="#4-clear的用法" class="headerlink" title="4.clear的用法"></a>4.clear的用法</h3><p>clear是制作网页的时候经常用到的属性，它的作用就是不让其他元素在同一行占位，Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一个float的例子：<br><img src="http://oeb0ci3nk.bkt.clouddn.com/float-clear.jpg" alt="float-clear"><br>图中彩色的左浮动和右浮动层分别用了float:left 和 float:right，用来验证clear是否起到作用。<br>图中第一行第一行的黄色的p标签没有使用clear，所以左右两边都被浮动层占据了。<br>第二行的黄色的p标签使用了clear-left，所以左边就不会被浮动层占据。<br>第三行的黄色的p标签使用了clear-right，所以右边就不会被浮动层占据。<br>第四行的黄色的p标签使用了clear-both，所以左右两边都不会被浮动层占据。</p>
+<p>我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：<br>    <div class="wrapper"><br>        <div class="part1"></div><br>      <div class="part2"></div><br>      <div class="part3"></div><br>      <div style="clear:both"></div><br>    </div></p>
+<h3 id="5-min-height"><a href="#5-min-height" class="headerlink" title="5.min-height"></a>5.min-height</h3><p>如果网站初期内容不够，很多模块都没有内容，就很容易出现在下面的层跑到上面来了，这个时候用min-height设置一下最小高度可以保证网页的美观。</p>
+<h3 id="6-media-设置多平台不同屏幕宽度的css"><a href="#6-media-设置多平台不同屏幕宽度的css" class="headerlink" title="6.media 设置多平台不同屏幕宽度的css"></a>6.media 设置多平台不同屏幕宽度的css</h3><p>百度统计的：<a href="http://tongji.baidu.com/data/screen" title="分辨率使用情况" target="_blank" rel="external">http://tongji.baidu.com/data/screen</a><br>根据不同的分辨率可以设置不同的css来适应不同的分辨率。</p>
+<pre><code>@media only screen and (max-width: 959px) {body{background:green;}}/*宽度小于960px时 绿色*/
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {body{background:red;}}/*宽度小于960px时，大于768px时 红色*/
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {body{background:yellow;}}/*宽度小于768px时 黄色*/
+</code></pre><h3 id="7-选择符以及优先级"><a href="#7-选择符以及优先级" class="headerlink" title="7.选择符以及优先级"></a>7.选择符以及优先级</h3><p>Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出的优先级规则：</p>
+<ol>
+<li>使用!important规则群组拥有最高优先级，他们会覆盖掉所有非!important规则。</li>
+<li>优先级第二高的群组是指嵌套在style属性里的规则。因为使用style属性会增加代码维护的难度，所以不建议使用它。</li>
+<li>优先级第三高的群组是指那些拥有一个或多个ID选择符的规则。比如 #i100{border:6px solid black;}会覆盖掉*.c10{border:4px solid black;}</li>
+<li>优先级第四高的群组是指含有一个或多个类，属性或伪类选择符的规则。例如：*.c10{border:4px solid black;}的优先级高于div{border:2px solid black;}。</li>
+<li>优先级第五高的群组是含有一个或多个元素选择符的规则。好比，div{border:2px solid black;}的优先级要高于*{border:0px solid black;}</li>
+<li>优先级最低的群组是只有通配(universal)选择符的规则-例如 *{border:0px solid black;}。<br>当竞争规则位于同一选择群组并且拥有同样等级和数量的选择符时，它们的优先级按所处的位置来排。位于高优先级位置的规则会覆盖掉低优先级位置里的竞争规则。（再次强调，只有当竞争规则位于同一选择符并且拥有同样等级和数量的选择符时，才应用这条规则，选择符群组要优于位置群组。）</li>
+<li>最高优先级位置为HTML文档头部中的<style>元素。比如<style>里的规则会覆盖掉通过嵌在<style>里的@import语句引入的样式表里的竞争规则。</li>
+<li>第二高优先级的位置为通过嵌在<style>元素里的@import语句来引入的样式表。例如由<style>中@import引入的样式表中的规则的优先级要高于通过<link>元素链接的样式表中的竞争规则。</li>
+<li>第三高优先级的位置为通过<link>元素链接的样式表。例如，通过<link>元素链接的样式表中的规则会覆盖掉在样式表中通过@import语句引入的竞争规则。</li>
+<li>第四高优先级的位置为由<link>链接的样式表中通过@import语句引入的样式表。比如，一条规则通过@import语句引入到已链接到文档的样式表中，那么它会覆盖掉由终端用户绑定的样式表中的竞争规则。</li>
+<li>第五高优先级的位置为终端用户绑定的样式表。当在终端用户的样式表中使用!important规则会有一个例外，此时这些规则会拥有最高优先级。这便允许了终端用户创建的规则能够覆盖开发者样式表中的规则。</li>
+<li>最低优先级的位置为浏览器所提供的默认样式表。</li>
+</ol>
+<p>这里有更详细的优先级规则：<a href="http://www.cnblogs.com/wangfupeng1988/p/4285251.html" title="选择器的优先级">http://www.cnblogs.com/wangfupeng1988/p/4285251.html</a></p>
+<p>根据这些优先级规则，一般写css的顺序是：<br>    <code>html,body{border-style:none!important;}</code><br>    <code>*{border:0px solid black;}/*通配选择符*/</code><br>    <code>div {border:2px solid black;}/*元素选择符*/</code><br>    <code>*.c10 {border:4px solid black;}/*类，属性和伪类选择符选择符*/</code><br>    <code>#i100{border:6px solid black;}/*ID选择符*/</code></p>
+<h3 id="8-制作移动网页"><a href="#8-制作移动网页" class="headerlink" title="8.制作移动网页"></a>8.制作移动网页</h3><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+</code></pre><p>使用以上代码来禁止用户手动调整缩放</p>
+</style></li></ol></h1></h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag">#html</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/03/tech/" rel="next" title="如何搭建自己的统一认证平台">
+                <i class="fa fa-chevron-left"></i> 如何搭建自己的统一认证平台
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/13/booklist/" rel="prev" title="前端书籍书单">
+                前端书籍书单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="vergilius" />
+          <p class="site-author-name" itemprop="name">vergilius</p>
+          <p class="site-description motion-element" itemprop="description">vergilius.me</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-命名规范"><span class="nav-number">1.</span> <span class="nav-text">1.命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#声明顺序"><span class="nav-number">1.2.</span> <span class="nav-text">声明顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单行规则声明"><span class="nav-number">1.3.</span> <span class="nav-text">单行规则声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简写形式的属性声明"><span class="nav-number">1.4.</span> <span class="nav-text">简写形式的属性声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">1.5.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-命名"><span class="nav-number">1.6.</span> <span class="nav-text">class 命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器"><span class="nav-number">1.7.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能优化"><span class="nav-number">1.8.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css文件命名"><span class="nav-number">1.9.</span> <span class="nav-text">css文件命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试小技巧"><span class="nav-number">1.10.</span> <span class="nav-text">调试小技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html属性"><span class="nav-number">1.11.</span> <span class="nav-text">html属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-css概览"><span class="nav-number">2.</span> <span class="nav-text">2.css概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-css-reset-规则"><span class="nav-number">3.</span> <span class="nav-text">3.css reset 规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">元素不同的size 和 margin，如果自己在css中设定好的size和margin就能让h1 在所有的浏览器中有一致的表现。雅虎的 YUI 3 CSS Reset    /**
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+/*
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
+*/
+html{
+    color:#000;
+    background:#FFF;
+}
+/*
+    TODO remove settings on BODY since we can't namespace it.
+*/
+/*
+    TODO test putting a class on HEAD.
+        - Fails on FF.
+*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,
+img {
+    border:0;
+}
+/*
+    TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style:normal;
+    font-weight:normal;
+}
+
+ol,
+ul {
+    list-style:none;
+}
+
+caption,
+th {
+    text-align:left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,
+q:after {
+    content:'';
+}
+abbr,
+acronym {
+    border:0;
+    font-variant:normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+    vertical-align:text-top;
+}
+sub {
+    vertical-align:text-bottom;
+}
+input,
+textarea,
+select {
+    font-family:inherit;
+    font-size:inherit;
+    font-weight:inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+    *font-size:100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+    color:#000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
+
+
+Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中总结归纳的css reset 规则：
+    Complete Baseline Stylesheet
+/* BLOCK ELEMENTS */
+html, div, map, dt, form { display:block; }
+body       { display:block; margin:8px; font-family:serif; font-size:medium; }
+p, dl
+{ display:block; margin-top:1em; margin-bottom:1em; }
+dd
+{ display:block; margin-left:40px; }
+address    { display:block; font-style:italic; }
+blockquote { display:block; margin:1em 40px; }
+h1 { display:block; font-size:2em;      font-weight:bold;   margin:0.67em 0; }
+h2 { display:block; font-size:1.5em;    font-weight:bold;   margin:0.83em 0; }
+h3 { display:block; font-size:1.125em;  font-weight:bold;   margin:1em    0; }
+h4 { display:block; font-size:1em;      font-weight:bold;   margin:1.33em 0; }
+h5 { display:block; font-size:0.75em;   font-weight:bold;   margin:1.67em 0; }
+h6 { display:block; font-size:0.5625em; font-weight:bold;   margin:2.33em 0; }
+pre{ display:block; font-family:monospace; white-space:pre; margin:1em    0; }
+hr { display:block; height:2px; border:1px; margin:0.5em auto 0.5em auto; }
+/* TABLE ELEMENTS */
+table   { border-spacing:2px; border-collapse:separate;
+margin-top:0; margin-bottom:0; text-indent:0; }
+caption { text-align:center; }
+td
+{ padding:1px; }
+th
+{ font-weight:bold; padding:1px; }
+tbody, thead, tfoot { vertical-align:middle; }
+/* INLINE ELEMENTS */
+strong { font-weight:bold; }
+cite, em, var, dfn { font-style:italic; }
+code, kbd, samp { font-family:monospace; }
+ins { text-decoration:underline; }
+del { text-decoration:line-through; }
+sub { vertical-align:-0.25em; font-size:smaller; line-height:normal; }
+sup { vertical-align: 0.5em;
+font-size:smaller; line-height:normal; }
+abbr[title], acronym[title] { border-bottom:dotted 1px; }
+/* LIST ELEMENTS */
+ul { list-style-type:disc;    margin:1em 0; margin-left:40px; padding-left:0;}
+ol { list-style-type:decimal; margin:1em 0; margin-left:40px; padding-left:0;}
+/* remove top & bottom margins for nested lists */
+ul ul, ul ol, ul dl, ol ul, ol ol, ol dl, dl ul, dl ol, dl dl
+{ margin-top:0; margin-bottom:0; }
+/* use circle when ul nested 2 deep */
+ol ul, ul ul { list-style-type:circle; }
+/* use square when ul nested 3 deep */
+ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type:square; }
+4.clear的用法clear是制作网页的时候经常用到的属性，它的作用就是不让其他元素在同一行占位，Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一个float的例子：图中彩色的左浮动和右浮动层分别用了float:left 和 float:right，用来验证clear是否起到作用。图中第一行第一行的黄色的p标签没有使用clear，所以左右两边都被浮动层占据了。第二行的黄色的p标签使用了clear-left，所以左边就不会被浮动层占据。第三行的黄色的p标签使用了clear-right，所以右边就不会被浮动层占据。第四行的黄色的p标签使用了clear-both，所以左右两边都不会被浮动层占据。
+我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：                                  
+5.min-height如果网站初期内容不够，很多模块都没有内容，就很容易出现在下面的层跑到上面来了，这个时候用min-height设置一下最小高度可以保证网页的美观。
+6.media 设置多平台不同屏幕宽度的css百度统计的：http://tongji.baidu.com/data/screen根据不同的分辨率可以设置不同的css来适应不同的分辨率。
+@media only screen and (max-width: 959px) {body{background:green;}}/*宽度小于960px时 绿色*/
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {body{background:red;}}/*宽度小于960px时，大于768px时 红色*/
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {body{background:yellow;}}/*宽度小于768px时 黄色*/
+7.选择符以及优先级Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出的优先级规则：
+
+使用!important规则群组拥有最高优先级，他们会覆盖掉所有非!important规则。
+优先级第二高的群组是指嵌套在style属性里的规则。因为使用style属性会增加代码维护的难度，所以不建议使用它。
+优先级第三高的群组是指那些拥有一个或多个ID选择符的规则。比如 #i100{border:6px solid black;}会覆盖掉*.c10{border:4px solid black;}
+优先级第四高的群组是指含有一个或多个类，属性或伪类选择符的规则。例如：*.c10{border:4px solid black;}的优先级高于div{border:2px solid black;}。
+优先级第五高的群组是含有一个或多个元素选择符的规则。好比，div{border:2px solid black;}的优先级要高于*{border:0px solid black;}
+优先级最低的群组是只有通配(universal)选择符的规则-例如 *{border:0px solid black;}。当竞争规则位于同一选择群组并且拥有同样等级和数量的选择符时，它们的优先级按所处的位置来排。位于高优先级位置的规则会覆盖掉低优先级位置里的竞争规则。（再次强调，只有当竞争规则位于同一选择符并且拥有同样等级和数量的选择符时，才应用这条规则，选择符群组要优于位置群组。）
+最高优先级位置为HTML文档头部中的元素。比如<style>里的规则会覆盖掉通过嵌在<style>里的@import语句引入的样式表里的竞争规则。</li>
+<li>第二高优先级的位置为通过嵌在<style>元素里的@import语句来引入的样式表。例如由<style>中@import引入的样式表中的规则的优先级要高于通过<link>元素链接的样式表中的竞争规则。</li>
+<li>第三高优先级的位置为通过<link>元素链接的样式表。例如，通过<link>元素链接的样式表中的规则会覆盖掉在样式表中通过@import语句引入的竞争规则。</li>
+<li>第四高优先级的位置为由<link>链接的样式表中通过@import语句引入的样式表。比如，一条规则通过@import语句引入到已链接到文档的样式表中，那么它会覆盖掉由终端用户绑定的样式表中的竞争规则。</li>
+<li>第五高优先级的位置为终端用户绑定的样式表。当在终端用户的样式表中使用!important规则会有一个例外，此时这些规则会拥有最高优先级。这便允许了终端用户创建的规则能够覆盖开发者样式表中的规则。</li>
+<li>最低优先级的位置为浏览器所提供的默认样式表。</li>
+</ol>
+<p>这里有更详细的优先级规则：<a href="http://www.cnblogs.com/wangfupeng1988/p/4285251.html" title="选择器的优先级">http://www.cnblogs.com/wangfupeng1988/p/4285251.html</a></p>
+<p>根据这些优先级规则，一般写css的顺序是：<br>    <code>html,body{border-style:none!important;}</code><br>    <code>*{border:0px solid black;}/*通配选择符*/</code><br>    <code>div {border:2px solid black;}/*元素选择符*/</code><br>    <code>*.c10 {border:4px solid black;}/*类，属性和伪类选择符选择符*/</code><br>    <code>#i100{border:6px solid black;}/*ID选择符*/</code></p>
+<h3 id="8-制作移动网页"><a href="#8-制作移动网页" class="headerlink" title="8.制作移动网页"></a>8.制作移动网页</h3><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+</code></pre><p>使用以上代码来禁止用户手动调整缩放</p>
+</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">的size和margin就能让h1 在所有的浏览器中有一致的表现。雅虎的 YUI 3 CSS Reset    /**
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+/*
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
+*/
+html{
+    color:#000;
+    background:#FFF;
+}
+/*
+    TODO remove settings on BODY since we can't namespace it.
+*/
+/*
+    TODO test putting a class on HEAD.
+        - Fails on FF.
+*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,
+img {
+    border:0;
+}
+/*
+    TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style:normal;
+    font-weight:normal;
+}
+
+ol,
+ul {
+    list-style:none;
+}
+
+caption,
+th {
+    text-align:left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,
+q:after {
+    content:'';
+}
+abbr,
+acronym {
+    border:0;
+    font-variant:normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+    vertical-align:text-top;
+}
+sub {
+    vertical-align:text-bottom;
+}
+input,
+textarea,
+select {
+    font-family:inherit;
+    font-size:inherit;
+    font-weight:inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+    *font-size:100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+    color:#000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
+
+
+Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中总结归纳的css reset 规则：
+    Complete Baseline Stylesheet
+/* BLOCK ELEMENTS */
+html, div, map, dt, form { display:block; }
+body       { display:block; margin:8px; font-family:serif; font-size:medium; }
+p, dl
+{ display:block; margin-top:1em; margin-bottom:1em; }
+dd
+{ display:block; margin-left:40px; }
+address    { display:block; font-style:italic; }
+blockquote { display:block; margin:1em 40px; }
+h1 { display:block; font-size:2em;      font-weight:bold;   margin:0.67em 0; }
+h2 { display:block; font-size:1.5em;    font-weight:bold;   margin:0.83em 0; }
+h3 { display:block; font-size:1.125em;  font-weight:bold;   margin:1em    0; }
+h4 { display:block; font-size:1em;      font-weight:bold;   margin:1.33em 0; }
+h5 { display:block; font-size:0.75em;   font-weight:bold;   margin:1.67em 0; }
+h6 { display:block; font-size:0.5625em; font-weight:bold;   margin:2.33em 0; }
+pre{ display:block; font-family:monospace; white-space:pre; margin:1em    0; }
+hr { display:block; height:2px; border:1px; margin:0.5em auto 0.5em auto; }
+/* TABLE ELEMENTS */
+table   { border-spacing:2px; border-collapse:separate;
+margin-top:0; margin-bottom:0; text-indent:0; }
+caption { text-align:center; }
+td
+{ padding:1px; }
+th
+{ font-weight:bold; padding:1px; }
+tbody, thead, tfoot { vertical-align:middle; }
+/* INLINE ELEMENTS */
+strong { font-weight:bold; }
+cite, em, var, dfn { font-style:italic; }
+code, kbd, samp { font-family:monospace; }
+ins { text-decoration:underline; }
+del { text-decoration:line-through; }
+sub { vertical-align:-0.25em; font-size:smaller; line-height:normal; }
+sup { vertical-align: 0.5em;
+font-size:smaller; line-height:normal; }
+abbr[title], acronym[title] { border-bottom:dotted 1px; }
+/* LIST ELEMENTS */
+ul { list-style-type:disc;    margin:1em 0; margin-left:40px; padding-left:0;}
+ol { list-style-type:decimal; margin:1em 0; margin-left:40px; padding-left:0;}
+/* remove top & bottom margins for nested lists */
+ul ul, ul ol, ul dl, ol ul, ol ol, ol dl, dl ul, dl ol, dl dl
+{ margin-top:0; margin-bottom:0; }
+/* use circle when ul nested 2 deep */
+ol ul, ul ul { list-style-type:circle; }
+/* use square when ul nested 3 deep */
+ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type:square; }
+4.clear的用法clear是制作网页的时候经常用到的属性，它的作用就是不让其他元素在同一行占位，Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一个float的例子：图中彩色的左浮动和右浮动层分别用了float:left 和 float:right，用来验证clear是否起到作用。图中第一行第一行的黄色的p标签没有使用clear，所以左右两边都被浮动层占据了。第二行的黄色的p标签使用了clear-left，所以左边就不会被浮动层占据。第三行的黄色的p标签使用了clear-right，所以右边就不会被浮动层占据。第四行的黄色的p标签使用了clear-both，所以左右两边都不会被浮动层占据。
+我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：                                  
+5.min-height如果网站初期内容不够，很多模块都没有内容，就很容易出现在下面的层跑到上面来了，这个时候用min-height设置一下最小高度可以保证网页的美观。
+6.media 设置多平台不同屏幕宽度的css百度统计的：http://tongji.baidu.com/data/screen根据不同的分辨率可以设置不同的css来适应不同的分辨率。
+@media only screen and (max-width: 959px) {body{background:green;}}/*宽度小于960px时 绿色*/
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {body{background:red;}}/*宽度小于960px时，大于768px时 红色*/
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {body{background:yellow;}}/*宽度小于768px时 黄色*/
+7.选择符以及优先级Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出的优先级规则：
+
+使用!important规则群组拥有最高优先级，他们会覆盖掉所有非!important规则。
+优先级第二高的群组是指嵌套在style属性里的规则。因为使用style属性会增加代码维护的难度，所以不建议使用它。
+优先级第三高的群组是指那些拥有一个或多个ID选择符的规则。比如 #i100{border:6px solid black;}会覆盖掉*.c10{border:4px solid black;}
+优先级第四高的群组是指含有一个或多个类，属性或伪类选择符的规则。例如：*.c10{border:4px solid black;}的优先级高于div{border:2px solid black;}。
+优先级第五高的群组是含有一个或多个元素选择符的规则。好比，div{border:2px solid black;}的优先级要高于*{border:0px solid black;}
+优先级最低的群组是只有通配(universal)选择符的规则-例如 *{border:0px solid black;}。当竞争规则位于同一选择群组并且拥有同样等级和数量的选择符时，它们的优先级按所处的位置来排。位于高优先级位置的规则会覆盖掉低优先级位置里的竞争规则。（再次强调，只有当竞争规则位于同一选择符并且拥有同样等级和数量的选择符时，才应用这条规则，选择符群组要优于位置群组。）
+最高优先级位置为HTML文档头部中的元素。比如<style>里的规则会覆盖掉通过嵌在<style>里的@import语句引入的样式表里的竞争规则。</li>
+<li>第二高优先级的位置为通过嵌在<style>元素里的@import语句来引入的样式表。例如由<style>中@import引入的样式表中的规则的优先级要高于通过<link>元素链接的样式表中的竞争规则。</li>
+<li>第三高优先级的位置为通过<link>元素链接的样式表。例如，通过<link>元素链接的样式表中的规则会覆盖掉在样式表中通过@import语句引入的竞争规则。</li>
+<li>第四高优先级的位置为由<link>链接的样式表中通过@import语句引入的样式表。比如，一条规则通过@import语句引入到已链接到文档的样式表中，那么它会覆盖掉由终端用户绑定的样式表中的竞争规则。</li>
+<li>第五高优先级的位置为终端用户绑定的样式表。当在终端用户的样式表中使用!important规则会有一个例外，此时这些规则会拥有最高优先级。这便允许了终端用户创建的规则能够覆盖开发者样式表中的规则。</li>
+<li>最低优先级的位置为浏览器所提供的默认样式表。</li>
+</ol>
+<p>这里有更详细的优先级规则：<a href="http://www.cnblogs.com/wangfupeng1988/p/4285251.html" title="选择器的优先级">http://www.cnblogs.com/wangfupeng1988/p/4285251.html</a></p>
+<p>根据这些优先级规则，一般写css的顺序是：<br>    <code>html,body{border-style:none!important;}</code><br>    <code>*{border:0px solid black;}/*通配选择符*/</code><br>    <code>div {border:2px solid black;}/*元素选择符*/</code><br>    <code>*.c10 {border:4px solid black;}/*类，属性和伪类选择符选择符*/</code><br>    <code>#i100{border:6px solid black;}/*ID选择符*/</code></p>
+<h3 id="8-制作移动网页"><a href="#8-制作移动网页" class="headerlink" title="8.制作移动网页"></a>8.制作移动网页</h3><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+</code></pre><p>使用以上代码来禁止用户手动调整缩放</p>
+</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-clear的用法"><span class="nav-number">1.</span> <span class="nav-text">4.clear的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-min-height"><span class="nav-number">2.</span> <span class="nav-text">5.min-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-media-设置多平台不同屏幕宽度的css"><span class="nav-number">3.</span> <span class="nav-text">6.media 设置多平台不同屏幕宽度的css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-选择符以及优先级"><span class="nav-number">4.</span> <span class="nav-text">7.选择符以及优先级</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vergilius</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
