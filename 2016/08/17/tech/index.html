@@ -653,7 +653,7 @@ ol ul, ul ul { list-style-type:circle; }
 /* use square when ul nested 3 deep */
 ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type:square; }
 </code></pre><h3 id="4-clear的用法"><a href="#4-clear的用法" class="headerlink" title="4.clear的用法"></a>4.clear的用法</h3><p>clear是制作网页的时候经常用到的属性，它的作用就是不让其他元素在同一行占位，Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一个float的例子：<br><img src="http://oeb0ci3nk.bkt.clouddn.com/float-clear.jpg" alt="float-clear"><br>图中彩色的左浮动和右浮动层分别用了float:left 和 float:right，用来验证clear是否起到作用。<br>图中第一行第一行的黄色的p标签没有使用clear，所以左右两边都被浮动层占据了。<br>第二行的黄色的p标签使用了clear-left，所以左边就不会被浮动层占据。<br>第三行的黄色的p标签使用了clear-right，所以右边就不会被浮动层占据。<br>第四行的黄色的p标签使用了clear-both，所以左右两边都不会被浮动层占据。</p>
-<p>我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：<br>    <div class="wrapper"><br>        <div class="part1"></div><br>      <div class="part2"></div><br>      <div class="part3"></div><br>      <div style="clear:both"></div><br>    </div></p>
+<p>我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;wrapper&quot;&gt;</div><div class="line"> &lt;div class=&quot;part1&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;part2&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;part3&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;div style=&quot;clear:both&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="5-min-height"><a href="#5-min-height" class="headerlink" title="5.min-height"></a>5.min-height</h3><p>如果网站初期内容不够，很多模块都没有内容，就很容易出现在下面的层跑到上面来了，这个时候用min-height设置一下最小高度可以保证网页的美观。</p>
 <h3 id="6-media-设置多平台不同屏幕宽度的css"><a href="#6-media-设置多平台不同屏幕宽度的css" class="headerlink" title="6.media 设置多平台不同屏幕宽度的css"></a>6.media 设置多平台不同屏幕宽度的css</h3><p>百度统计的：<a href="http://tongji.baidu.com/data/screen" title="分辨率使用情况" target="_blank" rel="external">http://tongji.baidu.com/data/screen</a><br>根据不同的分辨率可以设置不同的css来适应不同的分辨率。</p>
 <pre><code>@media only screen and (max-width: 959px) {body{background:green;}}/*宽度小于960px时 绿色*/
@@ -1016,7 +1016,7 @@ ol ul, ul ul { list-style-type:circle; }
 /* use square when ul nested 3 deep */
 ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type:square; }
 4.clear的用法clear是制作网页的时候经常用到的属性，它的作用就是不让其他元素在同一行占位，Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一个float的例子：图中彩色的左浮动和右浮动层分别用了float:left 和 float:right，用来验证clear是否起到作用。图中第一行第一行的黄色的p标签没有使用clear，所以左右两边都被浮动层占据了。第二行的黄色的p标签使用了clear-left，所以左边就不会被浮动层占据。第三行的黄色的p标签使用了clear-right，所以右边就不会被浮动层占据。第四行的黄色的p标签使用了clear-both，所以左右两边都不会被浮动层占据。
-我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：                                  
+我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：123456<div class="wrapper"> <div class="part1"></div>  <div class="part2"></div>  <div class="part3"></div>  <div style="clear:both"></div></div>
 5.min-height如果网站初期内容不够，很多模块都没有内容，就很容易出现在下面的层跑到上面来了，这个时候用min-height设置一下最小高度可以保证网页的美观。
 6.media 设置多平台不同屏幕宽度的css百度统计的：http://tongji.baidu.com/data/screen根据不同的分辨率可以设置不同的css来适应不同的分辨率。
 @media only screen and (max-width: 959px) {body{background:green;}}/*宽度小于960px时 绿色*/
@@ -1222,7 +1222,7 @@ ol ul, ul ul { list-style-type:circle; }
 /* use square when ul nested 3 deep */
 ol ol ul, ol ul ul, ul ol ul, ul ul ul { list-style-type:square; }
 4.clear的用法clear是制作网页的时候经常用到的属性，它的作用就是不让其他元素在同一行占位，Michael Bowers 在 《Pro.CSS.and.HTML.Design.Patterns》中给出了一个float的例子：图中彩色的左浮动和右浮动层分别用了float:left 和 float:right，用来验证clear是否起到作用。图中第一行第一行的黄色的p标签没有使用clear，所以左右两边都被浮动层占据了。第二行的黄色的p标签使用了clear-left，所以左边就不会被浮动层占据。第三行的黄色的p标签使用了clear-right，所以右边就不会被浮动层占据。第四行的黄色的p标签使用了clear-both，所以左右两边都不会被浮动层占据。
-我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：                                  
+我感觉clear可以用在某个div模块里最后加一个clear的层也可以保证网页下面的浮动层（float）不会跑到上面的模块里来。例如：123456<div class="wrapper"> <div class="part1"></div>  <div class="part2"></div>  <div class="part3"></div>  <div style="clear:both"></div></div>
 5.min-height如果网站初期内容不够，很多模块都没有内容，就很容易出现在下面的层跑到上面来了，这个时候用min-height设置一下最小高度可以保证网页的美观。
 6.media 设置多平台不同屏幕宽度的css百度统计的：http://tongji.baidu.com/data/screen根据不同的分辨率可以设置不同的css来适应不同的分辨率。
 @media only screen and (max-width: 959px) {body{background:green;}}/*宽度小于960px时 绿色*/
